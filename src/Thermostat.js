@@ -5,5 +5,13 @@ function Thermostat() {
 }
 
 Thermostat.prototype.getCurrentTemp = function() {
-  return this.temp; 
+  return this.temp;
 };
+
+Thermostat.prototype.up = function() {
+  this.temp += 1;
+}
+
+Thermostat.prototype.down = function() {
+  this.temp -= 1; 
+}
