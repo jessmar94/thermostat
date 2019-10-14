@@ -1,4 +1,3 @@
 function Thermostat() {
-  this.status = {
-    temp: 20}
+  this.temp = 20;
 }
