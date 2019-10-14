@@ -1,5 +1,4 @@
 function Thermostat() {
-  this.temp = "20 degrees"
+  this.status = {
+    temp: 20}
 }
-
-thermostat.temp
