@@ -1,6 +1,5 @@
 function Thermostat() {
+  this.temp = "20 degrees"
 }
 
-Thermostat.prototype.temp = function() {
-  return 20;
-}
+thermostat.temp
