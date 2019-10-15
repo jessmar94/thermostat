@@ -27,7 +27,30 @@ describe("Thermostat", function() {
       for (var i = 0; i < 11; i++) {
         thermostat.down();
       }
-      expect(thermostat.getCurrentTemp()).toEqual(10); 
+      expect(thermostat.getCurrentTemp()).toEqual(10);
+    });
+
+    // it('has a max temp of 25', function() {
+    //   for (var i = 0; i < 6; i++) {
+    //     thermostat.up();
+    //   }
+    //   expect(thermostat.getCurrentTemp()).toEqual(25);
+    // });
+  });
+
+  describe('power saving mode', function() {
+    it('returns true if power saving mode is on', function() {
+      expect(thermostat.isPowerSavingModeOn()).toBe(true);
+    });
+    it('can switch PSM off', function() {
+      thermostat.switchPowerSaveOff();
+      expect(thermostat.isPowerSavingModeOn()).toBe(false);
+    });
+    it('can switch PSM on', function() {
+      thermostat.switchPowerSaveOff();
+      expect(thermostat.isPowerSavingModeOn()).toBe(false);
+      thermostat.switchPowerSaveOn();
+      expect(thermostat.isPowerSavingModeOn()).toBe(true);
     });
   });
 });
