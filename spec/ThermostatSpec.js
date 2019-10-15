@@ -44,9 +44,10 @@ describe("Thermostat", function() {
       }
       expect(thermostat.getCurrentTemp()).toEqual(32);
     });
+
     it('can be reset to 20 degrees', function() {
       for (var i = 0; i < 4; i++) {
-        thermostat.up(); 
+        thermostat.up();
       }
       thermostat.reset();
       expect(thermostat.getCurrentTemp()).toEqual(20);
@@ -57,15 +58,41 @@ describe("Thermostat", function() {
     it('returns true if power saving mode is on', function() {
       expect(thermostat.isPowerSavingModeOn()).toBe(true);
     });
+
     it('can switch PSM off', function() {
       thermostat.switchPowerSaveOff();
       expect(thermostat.isPowerSavingModeOn()).toBe(false);
     });
+
     it('can switch PSM on', function() {
       thermostat.switchPowerSaveOff();
       expect(thermostat.isPowerSavingModeOn()).toBe(false);
       thermostat.switchPowerSaveOn();
       expect(thermostat.isPowerSavingModeOn()).toBe(true);
+    });
+  });
+
+  describe('energy usage levels', function() {
+    it('returns low-usage when temp is < 18', function() {
+      for (var i = 0; i < 3; i++) {
+        thermostat.down();
+      }
+      expect(thermostat.energyUsage()).toEqual('low-usage')
+    });
+
+    it('returns medium-usage when temp is >18 & >25', function() {
+      for (var i = 0; i < 4; i++) {
+        thermostat.up();
+      }
+      expect(thermostat.energyUsage()).toEqual('medium-usage')
+    });
+
+    it('returns high-usage when temp is > 25', function() {
+      thermostat.powerSavingMode = false; 
+      for (var i = 0; i < 10; i++) {
+        thermostat.up();
+      }
+      expect(thermostat.energyUsage()).toEqual('high-usage')
     });
   });
 });
