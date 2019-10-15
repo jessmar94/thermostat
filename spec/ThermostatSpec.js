@@ -22,5 +22,12 @@ describe("Thermostat", function() {
       thermostat.down()
       expect(thermostat.getCurrentTemp()).toEqual(19);
     });
+
+    it('has a min temp of 10', function() {
+      for (var i = 0; i < 11; i++) {
+        thermostat.down();
+      }
+      expect(thermostat.getCurrentTemp()).toEqual(10); 
+    });
   });
 });
