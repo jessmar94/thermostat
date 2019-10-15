@@ -30,12 +30,27 @@ describe("Thermostat", function() {
       expect(thermostat.getCurrentTemp()).toEqual(10);
     });
 
-    // it('has a max temp of 25', function() {
-    //   for (var i = 0; i < 6; i++) {
-    //     thermostat.up();
-    //   }
-    //   expect(thermostat.getCurrentTemp()).toEqual(25);
-    // });
+    it('has a max temp of 25 when power saving mode is on', function() {
+      for (var i = 0; i < 6; i++) {
+        thermostat.up();
+      }
+      expect(thermostat.getCurrentTemp()).toEqual(25);
+    });
+
+    it('has a max temp of 32 when power saving mode is off', function() {
+      thermostat.switchPowerSaveOff();
+      for (var i = 0; i < 12; i++) {
+        thermostat.up();
+      }
+      expect(thermostat.getCurrentTemp()).toEqual(32);
+    });
+    it('can be reset to 20 degrees', function() {
+      for (var i = 0; i < 4; i++) {
+        thermostat.up(); 
+      }
+      thermostat.reset();
+      expect(thermostat.getCurrentTemp()).toEqual(20);
+    });
   });
 
   describe('power saving mode', function() {
