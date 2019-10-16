@@ -7,7 +7,17 @@
   </head>
   <body>
     <section>
-      <h1>Current Temperature: <span id="temperature"></span> degrees</h1>
+      <h1>What city are you in?<h1>
+        <h3>
+          <select id="city" onChange="dropdownTip()">
+          <option selected disabled hidden style='display: none'>Select City</option>
+          <option value="London">London</option>
+          <option value="Paris">Paris</option>
+          <option value="Tokyo">Tokyo</option>
+          </select>
+        </h3>
+      <div id="selection"><h1> Current Weather in <span id="chosen-city"></span>: <span id="temp-api"></span> °C</h1></div>
+      <h2>Thermostat Temperature: <span id="temperature"></span> °C</h2>
       <p>
         <button id="temperature-up">+</button>
         <button id="temperature-down">-</button>
