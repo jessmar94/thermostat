@@ -31,6 +31,7 @@ $(document).ready(function() {
   function updateTemperature() {
     $("#temperature").text(thermostat.temp)
     $("#temperature").attr('class', thermostat.energyUsage())
+    $("#celsius").attr('class', thermostat.energyUsage())
   }
 
   $("#city").change(function() {
@@ -40,4 +41,17 @@ $(document).ready(function() {
     })
     $("#chosen-city").text(city)
   })
-});
+
+//   $("#city").change(function() {
+//     // $("#picture").attr('src', $(this).find(":selected").attr("data-src"))
+//     $("#picture").attr('src', $("#city").val())
+//   })
+// });
+
+$(".london").change(function() {
+  $("#picture").attr('src', 'public/London_sketch.jpg')
+})
+
+$(".paris").change(function() {
+  $("#picture").attr('src', 'public/Paris-sketch.jpg')
+})

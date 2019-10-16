@@ -9,3 +9,23 @@
 .high-usage {
   color: red;
 }
+
+.picture {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: 1;
+}
+
+.text {
+  margin: auto;
+  width: 50%;
+  z-index: 1000;
+  position: relative;
+  text-align: center;
+  font-family: 'Handlee', cursive;
+}
+
+select {
+  font-family: 'Handlee', cursive;
+}
