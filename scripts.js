@@ -1,21 +1,21 @@
 $(document).ready(function() {
 
   var thermostat = new Thermostat()
-  $("#temperature").text(thermostat.temp)
+  updateTemperature()
 
   $("#temperature-up").click(function() {
     thermostat.up();
-    $("#temperature").text(thermostat.temp)
+    updateTemperature();
   })
 
   $("#temperature-down").click(function() {
     thermostat.down();
-    $("#temperature").text(thermostat.temp)
+    updateTemperature();
   })
 
   $("#temperature-reset").click(function() {
     thermostat.reset();
-    $("#temperature").text(thermostat.temp)
+    updateTemperature();
   })
 
   $("#powersaving-on").click(function() {
@@ -28,5 +28,8 @@ $(document).ready(function() {
     $("#power-saving-status").text("Off")
   })
 
-
+  function updateTemperature() {
+    $("#temperature").text(thermostat.temp)
+    $("#temperature").attr('class', thermostat.energyUsage())
+  }
 });
