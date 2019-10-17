@@ -6,11 +6,13 @@ $(document).ready(function() {
   $("#temperature-up").click(function() {
     thermostat.up();
     updateTemperature();
+    sendTemp();
   })
 
   $("#temperature-down").click(function() {
     thermostat.down();
     updateTemperature();
+    sendTemp();
   })
 
   $("#temperature-reset").click(function() {
@@ -44,6 +46,16 @@ $(document).ready(function() {
 
   $(".change-picture").change(function() {
     $("img").attr("src", $( this ).find( "option:selected" ).data( "img-src" ));
+  })
+
+  function sendTemp() {
+    var temperature = { temperature: thermostat.temp }
+    $.post("http://localhost:4567/temperature", temperature)
+  }
+
+  $.get("http://localhost:4567/temperature", function(response) {
+    thermostat.temp = Number(response)
+    updateTemperature();
   })
 
 });
