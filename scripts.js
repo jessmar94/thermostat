@@ -42,16 +42,7 @@ $(document).ready(function() {
     $("#chosen-city").text(city)
   })
 
-//   $("#city").change(function() {
-//     // $("#picture").attr('src', $(this).find(":selected").attr("data-src"))
-//     $("#picture").attr('src', $("#city").val())
-//   })
-// });
-
-$(".london").change(function() {
-  $("#picture").attr('src', 'public/London_sketch.jpg')
-})
-
-$(".paris").change(function() {
-  $("#picture").attr('src', 'public/Paris-sketch.jpg')
-})
+  $(".change-picture").change(function() {
+    $("img").attr("src", $( this ).find( "option:selected" ).data( "img-src" ));
+  })
+});

@@ -7,17 +7,15 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-    <img src="public/London_sketch.jpg" id="picture">
+    <img src="public/world-watercolour.jpg" id="picture">
     <div class="text">
       <h1>What city are you in?<h1>
         <h3>
-          <select id="city" onChange="dropdownTip()" >
+          <select id="city" class="change-picture">
           <option selected disabled hidden style='display: none'>Select City</option>
-          <!-- <optgroup style="font-family: 'Handlee', cursive;"> -->
-              <option class="london" value="London" >London</option>
-              <option class="paris" value="Paris" >Paris</option>
-            <option value="Tokyo" data-src="tokyo-sketch">Tokyo</option>
-          <!-- </optgroup> -->
+              <option value="London" data-img-src="public/London_sketch.jpg">London</option>
+              <option value="Paris" data-img-src="public/Paris-sketch.jpg">Paris</option>
+            <option value="Tokyo" data-img-src="public/tokyo-sketches.jpg">Tokyo</option>
           </select>
         </h3>
       <div id="selection"><h1> Current Weather in <span id="chosen-city"></span>: <span id="temp-api"></span> °C</h1></div>
@@ -27,15 +25,15 @@
         <button id="temperature-down" type="button" class="btn btn-outline-primary">-</button>
         <button id="temperature-reset" type="button" class="btn btn-secondary">Reset</button>
         <div>
-            
+
             <button id="powersaving-on" type="button" class="btn btn-success">PSM on</button>
             <button id="powersaving-off" type="button" class="btn btn-danger">PSM off</button><br>
             Power Saving Mode is <span id="power-saving-status">On</span>
         </div>
-        
+
       </p>
     </div>
-    
+
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="src/Thermostat.js"></script>
     <script src="scripts.js"></script>
