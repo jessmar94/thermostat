@@ -10,13 +10,14 @@
   color: red;
 }
 
-.picture {
-  background-repeat: no-repeat;
-  background-position: center;
-  /* background-size: cover; */
-  width: 500px;
-  height: 400px;
-  z-index: 1;
+#picture {
+  height: 470px;
+  width: 1200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  top: -45px;
 }
 
 .text {
@@ -26,6 +27,7 @@
   position: relative;
   text-align: center;
   font-family: 'Handlee', cursive;
+  top: -90px;
 }
 
 select {

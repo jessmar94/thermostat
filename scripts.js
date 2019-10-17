@@ -45,4 +45,5 @@ $(document).ready(function() {
   $(".change-picture").change(function() {
     $("img").attr("src", $( this ).find( "option:selected" ).data( "img-src" ));
   })
+
 });
