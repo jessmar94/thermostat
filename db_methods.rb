@@ -13,7 +13,7 @@ end
 def save_city(city:)
   connection = PG.connect(dbname: 'thermostat')
   connection.exec("TRUNCATE TABLE city;")
-  connection.exec("INSERT INTO city (name) VALUES(##{city});")
+  connection.exec("INSERT INTO city (name) VALUES('#{city}');")
 end
 
 def load_city

@@ -18,12 +18,12 @@ class Thermostat < Sinatra::Base
 
   get '/city' do
     headers 'Access-Control-Allow-Origin' => '*' # required for privacy reasons
-    load_city.to_json
+    load_city
   end
 
   post '/city' do
     headers 'Access-Control-Allow-Origin' => '*' # required for privacy reasons
-    save_temp(city: params[:city])
+    save_city(city: params[:city])
   end
 
   run! if app_file = $0
