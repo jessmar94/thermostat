@@ -8,17 +8,22 @@ class Thermostat < Sinatra::Base
 
   get '/temperature' do
     headers 'Access-Control-Allow-Origin' => '*' # required for privacy reasons
-    # create var in database and return to json .to_i.to_json
-    # if temperature == nil
-    #   temperature = 20
-    # end
     load_temp.to_json
   end
 
   post '/temperature' do
     headers 'Access-Control-Allow-Origin' => '*' # required for privacy reasons
-    # temperature = params[:temperature]
     save_temp(temperature: params[:temperature])
+  end
+
+  get '/city' do
+    headers 'Access-Control-Allow-Origin' => '*' # required for privacy reasons
+    load_city.to_json
+  end
+
+  post '/city' do
+    headers 'Access-Control-Allow-Origin' => '*' # required for privacy reasons
+    save_temp(city: params[:city])
   end
 
   run! if app_file = $0

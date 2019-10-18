@@ -18,6 +18,7 @@ $(document).ready(function() {
   $("#temperature-reset").click(function() {
     thermostat.reset();
     updateTemperature();
+    sendTemp();
   })
 
   $("#powersaving-on").click(function() {
@@ -42,7 +43,17 @@ $(document).ready(function() {
     $("#temp-api").text(data.main.temp);
     })
     $("#chosen-city").text(city)
+    var chosenCity = { city: city }
+    $.post("http://localhost:4567/city", chosenCity)
   })
+
+  //   var chosenCity = { city: city }
+  //   $.post("http://localhost:4567/city", chosenCity)
+  // })
+
+  // $.get("http://localhost:4567/city", function(selection) {
+  //   $('#city').val(selection);
+  // })
 
   $(".change-picture").change(function() {
     $("img").attr("src", $( this ).find( "option:selected" ).data( "img-src" ));
@@ -56,6 +67,15 @@ $(document).ready(function() {
   $.get("http://localhost:4567/temperature", function(response) {
     thermostat.temp = Number(response)
     updateTemperature();
+  })
+
+  // function sendCity() {
+  //   var selectCity = $("#city").val();
+  //
+  // }
+
+  $.get("http://localhost:4567/city", function(selection) {
+    $('#city').val(selection);
   })
 
 });
