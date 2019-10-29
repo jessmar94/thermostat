@@ -47,17 +47,17 @@ $(document).ready(function() {
     $.post("http://localhost:4567/city", chosenCity)
   })
 
-  $.get("http://localhost:4567/city", function(selection) {
-    $('#city').val(selection);
-  })
-
+  // $.get("http://localhost:4567/city", function(selection) {
+  //   $('#city').val(selection);
+  // })
+  //
   //   var chosenCity = { city: city }
   //   $.post("http://localhost:4567/city", chosenCity)
   // })
 
-  // $.get("http://localhost:4567/city", function(selection) {
-  //   $('#city').val(selection);
-  // })
+  $.get("http://localhost:4567/city", function(selection) {
+    $('#city').val(selection);
+  })
 
   $(".change-picture").change(function() {
     $("img").attr("src", $( this ).find( "option:selected" ).data( "img-src" ));
